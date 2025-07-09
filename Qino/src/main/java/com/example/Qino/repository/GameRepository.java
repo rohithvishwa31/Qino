@@ -4,4 +4,6 @@ import com.example.Qino.entity.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GameRepository extends JpaRepository<Game,String> {
+
+    public Game findByStatus(Integer id);
 }
