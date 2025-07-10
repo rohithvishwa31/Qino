@@ -59,7 +59,7 @@ public class GameController {
 
                     Collections.shuffle(byGameId);
                     Player winPlayer = playerRepository.findByName(byGameId.get(0).getPlayerId());
-                    PlayerBalance playerBalance = playerBalanceRepository.findByPlayer(winPlayer);
+                    PlayerBalance playerBalance = playerBalanceRepository.findByPlayer_pid(winPlayer.getPid());
                     playerBalance.setBalance(playerBalance.getBalance().add(game.getBetLimit().multiply(new BigDecimal(byGameId.size()))));
                     playerBalanceRepository.save(playerBalance);
                     System.out.println("winner " + byGameId.get(0));
@@ -78,7 +78,7 @@ public class GameController {
     public String postBet(@RequestBody Ticket ticket) {
 
         Player player = playerRepository.findByName(ticket.getPlayerId());
-        PlayerBalance playerBalance = playerBalanceRepository.findByPlayer(player);
+        PlayerBalance playerBalance = playerBalanceRepository.findByPlayer_pid(player.getPid());
         List<Game> all = gameRepository.findAll();
         Optional<Game> first = all.stream().filter(a -> a.getStatus() == 1).findFirst();
         if (!first.isEmpty()) {

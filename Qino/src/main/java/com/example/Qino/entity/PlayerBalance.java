@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Data
+@Table(name = "player_balance")
 public class PlayerBalance {
 
     @Id
