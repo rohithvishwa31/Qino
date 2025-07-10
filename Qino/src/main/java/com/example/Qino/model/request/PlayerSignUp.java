@@ -1,4 +1,4 @@
-package com.example.Qino.model;
+package com.example.Qino.model.request;
 
 
 import lombok.AllArgsConstructor;

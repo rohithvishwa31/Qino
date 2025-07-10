@@ -5,7 +5,7 @@ import com.example.Qino.entity.Bet;
 import com.example.Qino.entity.Game;
 import com.example.Qino.entity.Player;
 import com.example.Qino.entity.PlayerBalance;
-import com.example.Qino.model.Ticket;
+import com.example.Qino.model.request.Ticket;
 import com.example.Qino.repository.BetRepository;
 import com.example.Qino.repository.GameRepository;
 import com.example.Qino.repository.PlayerBalanceRepository;
@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.sql.Time;
 import java.util.*;
 
 @RestController("/game")
@@ -95,7 +93,6 @@ public class GameController {
                     return "bet posted";
                 }
                 return "bet not posted ";
-
             }
             return null;
         }
